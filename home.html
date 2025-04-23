@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Vehículos</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#vehicles">Vehículos</a></li>
+                <li><a href="#advisors">Asesores</a></li>
+                <li><a href="#locations">Sedes</a></li>
+                <li><a href="#insurance">Aseguradoras</a></li>
+                <li><a href="#banks">Bancos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="filters">
+            <h2>Filtros</h2>
+            <div class="filter-group">
+                <input type="text" id="brand" placeholder="Marca">
+                <input type="text" id="model" placeholder="Modelo">
+                <input type="number" id="year" placeholder="Año">
+                <input type="number" id="mileage" placeholder="Kilometraje">
+                <input type="text" id="location" placeholder="Ubicación">
+                <select id="type">
+                    <option value="">Tipo de vehículo</option>
+                    <option value="sedan">Sedán</option>
+                    <option value="suv">SUV</option>
+                    <option value="pickup">Pickup</option>
+                </select>
+                <input type="text" id="lastPlateDigit" placeholder="Último dígito placa" maxlength="1">
+                <button onclick="applyFilters()">Aplicar Filtros</button>
+                <button onclick="clearFilters()" class="clear-filters">Limpiar Filtros</button>
+            </div>
+        </section>
+
+        <section id="vehicles" class="catalog">
+            <h2>Vehículos Disponibles</h2>
+            <div id="vehicleList" class="grid"></div>
+        </section>
+
+        <section id="advisors" class="catalog">
+            <h2>Asesores Disponibles</h2>
+            <div id="advisorsList" class="grid"></div>
+        </section>
+
+        <section id="locations" class="catalog">
+            <h2>Nuestras Sedes</h2>
+            <div class="locations-container">
+                <div id="map" class="google-map"></div>
+                <div id="locationsList" class="locations-list"></div>
+            </div>
+        </section>
+
+        <section id="insurance" class="catalog">
+            <h2>Aseguradoras</h2>
+            <div id="insuranceList" class="grid"></div>
+        </section>
+
+        <section id="banks" class="catalog">
+            <h2>Bancos Financiadores</h2>
+            <div id="banksList" class="grid"></div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>
